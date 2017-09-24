@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kuaiyu</title>
+    <script src="../../js/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        app.controller('appCtrl', ['$scope', function ($scope) {
+            $http({
+                method: 'JSONP',
+                url: 'http://api.izsjia.com/spread/spread/details?callback=JSON_CALLBACK&preadId=5',
+            }).success(function (msg) {
+                console.log(data);
+            });
+
+           /* //或者
+            $http
+                .jsonp('http://www.b.com/test.php?callback=JSON_CALLBACK')
+                .success(function (msg){
+                    console.log(msg);
+                });*/
+        }]);
+    </script>
+</head>
+</head>
+<body>
+
+</body>
+</html>

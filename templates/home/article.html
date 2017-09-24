@@ -1,0 +1,36 @@
+
+<ion-view view-title="文章详情" class="article-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">文章详情</div>
+        <div class="right"><i class="icon iconfont icon-mfenxiang"></i></div>
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()">
+        <div class="header-box-shadow"></div>
+
+        <div class="article">
+      		<h2>{{detail.title}}</h2>
+      		<div class="border-bottom"></div>
+      		<div class="content" ng-bind-html="detail.content"></div>
+            <img ng-src="{{img_url+detail.thumb}}"/>
+      		<p>
+      		<span class="star"><i class="icon iconfont icon-jiaxingshoucang"></i>{{detail.click}}</span>　　
+			<span class="eye"><i class="icon iconfont icon-eye"></i>{{detail.click}}</span>
+			</p>
+      	</div>
+
+      	<div class="recommend">
+      		<h2><span>丨&nbsp;</span>套餐推荐</h2>
+      		<div class="img-list" ng-repeat="suit in abc">
+                <a ng-href="{{item.ad_link}}"><img ng-src="{{img_url+suit.photo}}"/></a>
+      		</div>
+      	</div>
+      	<div class="recommend1">
+      		<h2><span>丨&nbsp;</span>商品推荐</h2>
+            <div class="img-list" ng-repeat="goods in goods">
+                <a ng-href="{{item.ad_link}}"><img ng-src="{{img_url+goods.img_url}}"/></a>
+            </div>
+      	</div>
+    </ion-content>
+</ion-view>

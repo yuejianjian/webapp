@@ -1,0 +1,67 @@
+
+<ion-view view-title="体验店" class="showrooms-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">体验店</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <div class="black-bg" ng-show="isShow">
+        <div class="shadow"></div>
+        <div class="wrap">
+            <div class="close"><i ng-click="close()" class="icon ion-android-close"></i></div>
+            <ul>
+                <li ng-class="{active:styleId==0}"
+                    ng-click="changeStyleId(0)">全部</li>
+                <li
+                    ng-repeat="item in styleList"
+                    ng-class="{active:styleId==item.id}"
+                    ng-click="changeStyleId(item.id)">
+                {{item.title}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <ion-content>
+        <div class="header-box-shadow"></div>
+
+        <div class="slide-box">
+            <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="2000">
+              <ion-slide ng-repeat="item in adImg">
+                <a ng-href="{{item.ad_link}}"><img ng-src="{{img_url+item.ad_code}}"  /></a>
+              </ion-slide>
+
+            </ion-slide-box>
+        </div>
+
+        <div class="list-box">
+            <h2><span></span>商家列表</h2>
+            <div class="classify">
+                <ol>
+                    <li ng-class="{active:styleId==0}"
+                        ng-click="changeStyleId(0)">全部</li>
+                    <li
+                        ng-repeat="item in styleList1"
+                        ng-class="{active:styleId==item.id}"
+                        ng-click="changeStyleId(item.id)">
+                    {{item.title}}</li>
+                </ol>
+                <div class="more" ng-click="more();">+</div>
+            </div>
+            <ul>
+                <li ui-sref="showroomDetail({experienceId:item.experience_id})" ng-repeat="item in roomList">
+                    <div class="list-img">
+                        <img ng-src="{{img_url+item.photo}}">
+                        <img ng-show="{{item.attribute==3}}" src="./img/hot.png">
+                    </div>
+                    <div class="content">
+                        <p class="name">{{item.title}}</p>
+                        <p class="person"><i class="icon iconfont icon-dibiaotianchong"></i>&nbsp;<span>{{item.addres}}</span></p>
+                         <p class="person"><i class="icon ion-android-person"></i>&nbsp;<span>{{item.business}}</span></p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </ion-content>
+</ion-view>

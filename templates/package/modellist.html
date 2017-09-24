@@ -1,0 +1,27 @@
+
+<ion-view view-title="套餐名称" class="modellist-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">装修案例列表</div>
+        <div class="right"></div>
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()">
+        <div class="header-box-shadow"></div>
+       	<div class="list-box">
+
+            <ul>
+                <li ng-repeat="item in modellist">
+                    <img ng-src="{{img_url+item.photo}}" />
+                    <div class="content">
+                        <p class="name">{{item.title}}</p>
+                        <p class="person"><i class="icon ion-android-person"></i>&nbsp;<span>{{item.owner_name}}</span></p>
+                        <p class="person"><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>{{item.owner_addres}}</span></p>
+                    </div>
+                    <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+                </li>
+            </ul>
+
+        </div>
+    </ion-content>
+</ion-view>

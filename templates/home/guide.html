@@ -1,0 +1,65 @@
+
+<ion-view view-title="装修百科" class="guide-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">装修百科</div>
+        <div class="right" ng-click="toggleRight()"><i class="icon iconfont icon-shaixuan"></i></div>
+    </header>
+
+    <ion-side-menus>
+	  <!-- 中间内容 -->
+	  <ion-side-menu-content >
+	  <ion-content>
+	  <div class="header-box-shadow"></div>
+		<ul class="aticle">
+			<li ng-repeat="item in list" ui-sref="article({aid:item.article_id})">
+				<div class="left-box">
+					<img ng-src="{{img_url+item.thumb}}"  />
+				</div>
+				<div class="right-box">
+					<div class="content">{{item.title}}</div>
+					<div class="like">
+						<span class="step">{{item.keywords}}</span>
+						<!--<span class="star"><i class="icon iconfont icon-jiaxingshoucang"></i>{{item.click}}</span>-->
+						<span class="eye"><i class="icon iconfont icon-eye"></i>{{item.click}}</span>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+
+		</ion-content>
+	  </ion-side-menu-content>
+
+
+	  <!-- 右侧菜单 -->
+	  <ion-side-menu side="right" style="background: #eee">
+		 <header class="header-box">
+	        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+	        <div class="page-title">筛选</div>
+	        <div class="right"></div>
+	    </header>
+	    <ion-content>
+		    <div class="header-box-shadow"></div>
+		    <div class="nav-box">
+				<ul>
+					<li
+						ng-repeat="item in category"
+						ng-click="changeIndex($index)"
+						ng-class="{active:categoryIndex==$index}">
+					{{item.cat_name}}</li>
+
+				</ul>
+			</div>
+			<div class="list-box" id="list-box">
+				<ul ng-repeat="item in category" ng-show="categoryIndex==$index">
+					<li ng-repeat="li in item.list" data-catId="{{li.cat_id}}" ng-click="check($event,li.cat_id)" ng-class="{active:li.active}">{{li.cat_name}}</li>
+				</ul>
+				<div class="ok-btn" ng-click="search()">确定</div>
+			</div>
+			 <!--<div class="ok-btn">确定</div>-->
+
+		</ion-content>
+	  </ion-side-menu>
+	</ion-side-menus>
+</ion-view>

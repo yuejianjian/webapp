@@ -1,0 +1,73 @@
+
+<ion-view view-title="体验店详情" class="showroomDetail-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">体验店详情</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <div class="black-bg" ng-init="isShowTel=false" ng-show="isShowTel">
+        <div class="tip">
+            <div class="tip-title">提示</div>
+            <div class="message">是否拨打客服电话40000000</div>
+            <div class="btn-box">
+                <span class="cancle-btn" ng-click="isShowTel=false;">取消</span>
+                <span class="ok-btn" ng-click="isShowTel=false;"><a href="tel:18271630398">确定</a></span>
+            </div>
+        </div>
+    </div>
+
+    <ion-content>
+        <div class="header-box-shadow"></div>
+
+        <!-- <div class="ad-pic"><img ng-src="{{img_url+info.photo}}"></div> -->
+        <div class="ad-pic">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!--<div class="swiper-slide" ng-repeat="item in imgList"><a href="#"><img ng-src="{{img_url+item.imgurl}}"></a></div>-->
+                <div class="swiper-slide" ><a href="#"><img ng-src="{{img_url+info.photo}}"></a></div>
+            </div>
+            <!--<div class="swiper-pagination"></div>-->
+        </div>
+        </div>
+
+        <div class="title">
+            <span>{{info.slogan}}</span>
+            <p>{{info.title}}</p>
+
+        </div>
+
+        <div class="panoramic"><a ng-href="{{info.overall_url}}">720°全景展示　<i class="icon ion-ios-arrow-right"></i></a></div>
+        <p class="location"><i class="icon iconfont icon-dibiaotianchong"></i>&nbsp;<span ui-sref="map">{{info.addres}}</span></p>
+
+        <div class="detail">
+            <div class="name">
+                <h2>商家介绍</h2>
+                <img class="down" src="./img/down.png">
+            </div>
+            <div class="content" ng-bind-html="info.info|unescapeHTML"></div>
+            <!--<div class="BoxWrap">
+                <div class="horn">
+                    <img src="./img/12.jpg" alt="">
+                    <div class="lt"></div>
+                    <div class="rt"></div>
+                    <div class="rb"></div>
+                    <div class="lb"></div>
+                </div>
+            </div>-->
+        </div>
+
+        <div class="footer-box-shadow"></div>
+    </ion-content>
+
+    <footer class="footer-box">
+        <div class="icon-box" ng-init="isCollect==info.collect">
+            <i class="icon iconfont icon-favor_light" ng-show="!isCollect" ng-click="collect()"></i>
+            <i class="icon iconfont icon-favoritesfilling" style="color: #ee8219" ng-show="isCollect" ng-click="collect()" ></i>
+        </div>
+        <div class="icon-box icon-box2">
+            <i class="icon iconfont icon-mfenxiang"></i>
+        </div>
+        <div class="footer-btn2" ng-click="isShowTel=true">电话咨询</div>
+    </footer>
+</ion-view>

@@ -1,0 +1,136 @@
+
+<ion-view view-title="套餐详情" class="packageDetail-page">
+    <header class="header-box">
+        <div class="left"><i  ng-click="goBack()" class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">{{packageDetail.title}}</div>
+        <div class="right">
+        	<div class="circle"><i class="icon iconfont icon-favor_light"></i></div>
+        	<div class="circle"><i class="icon iconfont icon-favor_light"></i></div>
+        	<div class="circle"><i class="icon iconfont icon-mfenxiang"></i></div>
+        </div>
+    </header>
+	<div class="nav-box2" ng-init='navIndex=1'>
+		<span ng-class="{active:navIndex==1}" ng-click="changeIndex(1)">方案介绍</span>
+		<span ng-class="{active:navIndex==2}" ng-click="changeIndex(2)">物料清单</span>
+	</div>
+
+	<div class="bigimg" ng-init="isShowBigimg=false" ng-show="isShowBigimg" ng-click="isShowBigimg=false">
+		<img ng-src="{{img_url+packageDetail.photo}}">
+	</div>
+
+	<div class="black-bg" ng-init="isShowCalc=false" ng-show="isShowCalc">
+		<div class="calc">
+			<div class="close"><span ng-click="showCalc()">x</span></div>
+			<h3>价格计算</h3>
+			<input  class="info-input" type="text" placeholder="请输入面积/m²" ng-model="mj" />
+			<div class="result">
+				￥<span>{{mj*packageDetail.price||"0.00"}}</span>
+			</div>
+			<div class="lit-tip">提示信息提示信息</div>
+		</div>
+	</div>
+
+	<div class="black-bg" ng-show="showTip">
+		<div class="tip">
+			<div class="tip-title">提示</div>
+			<div class="message">{{tip}}</div>
+			<div class="btn-box">
+				<!-- <span class="cancle-btn">取消</span> -->
+				<span class="ok-btn" ng-click="showTip=false;">确定</span>
+			</div>
+		</div>
+	</div>
+	<div class="black-bg" ng-init="isShowTel=false" ng-show="isShowTel">
+		<div class="tip">
+			<div class="tip-title">提示</div>
+			<div class="message">是否拨打客服电话40000000</div>
+			<div class="btn-box">
+				<span class="cancle-btn" ng-click="showTel()">取消</span>
+				<span class="ok-btn" ng-click="showTip=false;"><a href="tel:18271630398">确定</a></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="black-bg" ng-init="isShowYuyue=false" ng-show="isShowYuyue">
+		<div class="calc yuyue">
+			<div class="close"><span ng-click="showYuyue()">x</span></div>
+			<h3>立即预约</h3>
+			<input id="sqr" class="info-input" type="text" placeholder="请输入您的姓名" ng-model="name" />
+			<input id="sqr" class="info-input" type="text" placeholder="请输入您的电话" ng-model="mobile" />
+			<button class="btn" ng-click="yuyue()" >立即预约</button>
+		</div>
+	</div>
+
+    <ion-scroll  class="home-page" id="myscroll" ng-style="grid_height">
+         <div class="ad-pic">
+	        <header class="transparent-header">
+		        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+		        <div class="right">
+		        	<div class="circle"><i class="icon iconfont icon-favor_light"></i></div>
+		        	<div class="circle"><i class="icon iconfont icon-mfenxiang"></i></div>
+		        </div>
+		    </header>
+         	<!--<img ng-src="{{packageDetail.overall_url}}">-->
+             <iframe src="http://vr.izsjia.com/tour/2aa3c8077aa91117" frameborder="0" width="100%" height="100%" ></iframe>
+         	<div class="big-pic" ng-click="lookBigimg()"><i class="icon iconfont icon-fangda"></i></div>
+         </div>
+        <div class="content">
+        	<div class="dec">
+        		<h2>{{packageDetail.title}}</h2>
+        		<span>{{packageDetail.short_description}}</span>
+        	</div>
+        	<div class="price">￥<span>{{packageDetail.price}}</span>/m²</div>
+        </div>
+		<div class="nav-box">
+			<span ng-class="{active:navIndex==1}" ng-click="changeIndex(1)">方案介绍</span>
+			<span ng-class="{active:navIndex==2}" ng-click="changeIndex(2)">物料清单</span>
+		</div>
+		<div class="introduction nav-item" ng-show="navIndex==1"  ng-bind-html="packageDetail.introduction|unescapeHTML">
+			<!-- <ul>
+				<li>
+					<img src="./img/deco.png">
+					<div class="dec"><span>丨</span><p>反倒是发送到发送到发送到发送到发送到发送到发送到发送到嘎嘎嘎</p></div>
+				</li>
+				<li>
+					<img src="./img/deco.png">
+					<div class="dec"><span>丨</span><p>反倒是发送到发送到发送到发送到发送到发送到发送到发送到嘎嘎嘎</p></div>
+				</li>
+			</ul> -->
+		</div>
+
+		<div class="material-bill nav-item" ng-show="navIndex==2">
+			<div class="classify" ng-repeat="item in material">
+				<h2><span>丨</span>{{item.room}}</h2>
+				<div class="item-list" ng-repeat="list in item.list">
+					<img ng-src="{{img_url+list.original_img}}">
+					<div class="list-dec">
+						<div class="div1">{{list.goods_name}}</div>
+						<div ng-repeat="spec_arr in list.spec_arr">
+						<div class="div2">{{spec_arr.name}}:<span>{{spec_arr.item}}</span></div>
+						</div>
+					</div>
+					<div class="list-price">
+						<div class="price">￥<span>{{list.shop_price}}</span></div>
+						<div class="oldprice">￥<span>{{list.market_price}}</span></div>
+						<div class="num">x<span>{{list.num}}</span></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<div class="footer-box-shadow"></div>
+    </ion-scroll>
+
+    <footer class="footer-box">
+    	<div class="icon-box">
+	    	<i class="icon iconfont icon-calculator"  ng-click="showCalc()"></i>
+	    	<span>丨</span>
+	    	<i class="icon iconfont icon-xiatubiao-" ng-click="showTel()"></i>
+    	</div>
+    	<div class="footer-btn1" ui-sref="modellist({suit_id:suit_id})">装修案例</div>
+    	<div class="footer-btn2" ng-click="showYuyue()">立即预约</div>
+    </footer>
+</ion-view>

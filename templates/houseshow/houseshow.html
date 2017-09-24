@@ -1,0 +1,40 @@
+<ion-view view-title="来我家" class="houseshow-page">
+	<header class="header-nav">
+        <div class="left"></div>
+        <div class="page-title">来我家</div>
+        <div class="right"><i class="icon iconfont icon-dingwei1"></i><i class="icon iconfont icon-sousuo"></i></div>
+        <ul ng-init="index=0">
+        	<li ng-class="{active:index==$index}" ng-click="selcet($index)" ng-repeat="item in styleList">{{item.title}}&nbsp;<span class="active"><i class="icon iconfont icon-xia"></i></span></li>
+        </ul>
+        <ol ng-show="isShow==$index" ng-repeat="item in styleList">
+        	<li ng-class="{active:aindex==-1}"  ng-click="selcetstyle(-1,'',item.list[0].attribute_id)">全部</li>
+        	<li ng-class="{active:aindex==$index}" ng-click="selcetstyle($index,{{list.id}},{{list.attribute_id}})" ng-repeat="list in item.list">{{list.title}}{{$index}}</li>
+
+        </ol>
+
+    </header>
+    <ion-scroll  class="home-page" id="myscroll" ng-style="grid_height">
+    	<div class="header-box-shadow"></div>
+        <div class="recommend-box">
+			<ul class="goods-list">
+				<li ui-sref="modelroom({prototypeId: item.prototype_id})" ng-repeat="item in list">
+					<div class="list-wrap">
+						<img ng-src="{{img_url+item.photo}}"  />
+						<div class="content">
+							<div class="pic"><img ng-src="{{img_url+item.owner_photo}}"  /></div>
+							<div class="info">
+								<p>{{item.owner_name}}</p>
+								<p>{{item.short_description}}</p>
+							</div>
+							<div class="location">
+								<p><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>{{item.owner_addres}}</span></p>
+								<div class="distance">&lt;<span>{{item.distance}}</span>m</div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</ion-scroll>
+</ion-view>

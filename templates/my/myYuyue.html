@@ -1,0 +1,123 @@
+
+<ion-view view-title="我的预约" class="myYuyue-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">我的预约</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+    <ul class="nav">
+        <li ng-class="{active:navIndex==1}" ng-click="changeIndex(1)">全部</li>
+        <li ng-class="{active:navIndex==2}" ng-click="changeIndex(2)">装修预约</li>
+        <li ng-class="{active:navIndex==3}" ng-click="changeIndex(3)">来我家预约</li>
+    </ul>
+
+    <ion-content on-swipe-left="onSwipeLeft()" >
+        <div class="header-box-shadow"></div>
+
+        <ul class="nav-list" ng-show="navIndex==1">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                    <div class="status">
+                        <img src="./img/yiwancheng.png">
+                        <p>已完成</p>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="name">样板间名称</div>
+                    <div class="person"><i class="icon ion-android-person"></i>&nbsp;&nbsp;<span>王女士</span></div>
+                    <div class="address"><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>中南国际城</span></div>
+
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                    <div class="status">
+                        <img src="./img/yiwancheng.png">
+                        <p>已完成</p>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="name">699硬装：套餐名称</div>
+                    <div class="price">￥699/m²</div>
+                    <div class="price">总面积：100m²</div>
+                    <div class="total-price">￥69900.0<span class="look-btn">查看合同</span></div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+
+        <ul class="nav-list" ng-show="navIndex==2">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                    <div class="status">
+                        <img src="./img/yiwancheng.png">
+                        <p>已完成</p>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="name">699硬装：套餐名称</div>
+                    <div class="price">￥699/m²</div>
+                    <div class="price">总面积：100m²</div>
+                    <div class="total-price">￥69900.0<span class="look-btn">查看合同</span></div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                    <div class="status">
+                        <img src="./img/yiwancheng.png">
+                        <p>已完成</p>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="name">699硬装：套餐名称</div>
+                    <div class="price">￥699/m²</div>
+                    <div class="price">总面积：100m²</div>
+                    <div class="total-price">￥69900.0<span class="look-btn">查看合同</span></div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+
+        <ul class="nav-list" ng-show="navIndex==3">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                    <div class="status">
+                        <img src="./img/yiwancheng.png">
+                        <p>已完成</p>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="name">样板间名称</div>
+                    <div class="person"><i class="icon ion-android-person"></i>&nbsp;&nbsp;<span>王女士</span></div>
+                    <div class="address"><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>中南国际城</span></div>
+
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                    <div class="status">
+                        <img src="./img/yiwancheng.png">
+                        <p>已完成</p>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="name">样板间名称</div>
+                    <div class="person"><i class="icon ion-android-person"></i>&nbsp;&nbsp;<span>王女士</span></div>
+                    <div class="address"><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>中南国际城</span></div>
+
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+
+    </ion-content>
+</ion-view>

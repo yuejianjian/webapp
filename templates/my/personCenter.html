@@ -1,0 +1,32 @@
+
+<ion-view view-title="个人中心" class="personCenter-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">个人中心</div>
+        <div class="right"></div>
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()" >
+        <div class="header-box-shadow"></div>
+		<ul>
+			<li class="li-item">
+       			<span class="name">头像</span>
+       			<span class="right"><img src="./img/12.jpg"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+       		<li class="li-item">
+       			<span class="name">昵称</span>
+       			<span class="right"><span>aaa</span><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+       		<li class="li-item">
+       			<span class="name">性别</span>
+       			<span class="right"><span>男</span><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+
+       		<li class="li-item modifyPwd">
+       			<span class="name">修改密码</span>
+       			<span class="right"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+        </ul>
+
+    </ion-content>
+</ion-view>

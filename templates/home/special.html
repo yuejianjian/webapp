@@ -1,0 +1,25 @@
+
+<ion-view view-title="专题" class="special-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">专题</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()">
+        <div class="header-box-shadow"></div>
+
+        <ul class="active-list">
+			<li ng-repeat="item in adImg">
+			<a ng-href="{{item.ad_link}}">
+				<img ng-src="{{img_url+item.ad_code}}"  />
+				<div class="triangle-topright"><span>火热进行</span></div>
+				<div class="content">
+					<span class="title">{{item.ad_name}}</span>
+					<span class="time"><span>5</span>天后结束</span>
+				</div>
+			</a>
+			</li>
+		</ul>
+    </ion-content>
+</ion-view>

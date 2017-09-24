@@ -1,0 +1,40 @@
+
+<ion-view view-title="预约报名" class="yuyue1-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">预约报名</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <div class="black-bg" ng-show="showTip">
+        <div class="tip">
+            <div class="tip-title">提示</div>
+            <div class="message">{{tip}}</div>
+            <div class="btn-box">
+                <!-- <span class="cancle-btn">取消</span> -->
+                <span class="ok-btn" ng-click="showTip=false;">确定</span>
+            </div>
+        </div>
+    </div>
+
+    <ion-content on-swipe-left="onSwipeLeft()" class="myhouse-page">
+        <div class="header-box-shadow"></div>
+
+        <form>
+            <input class="info-input" type="text" placeholder="请输入您的称呼"  />
+            <input class="info-input" type="tel" placeholder="请输入您的手机号码" />
+
+            <div class="xieyi">
+                <label class="my-checkbox">
+                    <input type="checkbox" ng-checked="true">
+                    <span></span>
+                </label>
+                我已阅读并接受<span>《掌上家服务条款》</span>
+            </div>
+
+            <div class="btn" ng-click="yuyue()">预约</div>
+            <p class="tip">*您的信息将严格保密，预约提交后我们的客服人员将在24小时之内联系您</p>
+        </form>
+
+    </ion-content>
+</ion-view>

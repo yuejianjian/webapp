@@ -1,0 +1,130 @@
+
+<ion-view view-title="我的家" class="myhouse-page">
+
+    <div class="full-img" ng-init="isShowBigimg=false" ng-show="isShowBigimg">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" ng-click="closeSlide()">
+                <div class="swiper-slide" ng-repeat="item in fullImgList"><img ng-src="{{img_url+item.imgurl}}"  /></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="doTell">
+        <i class="icon iconfont icon-xiatubiao-"></i>
+        <p>联系客服</p>
+    </div>
+
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">我的家</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()" class="myhouse-page">
+        <div class="header-box-shadow"></div>
+
+        <div class="infomation">
+            <img src="./img/deco.png"  />
+            <div class="pic"> <img ng-src="{{img_url+userInfo.photo}}"  /></div>
+            <div class="content">
+                <p class="name">姓名</p>
+                <p>{{userInfo.owner_addres}}<span>{{userInfo.owner_acreage}}m²</span></p>
+            </div>
+        </div>
+        <ion-scroll class="nav-scroll"  direction="x" scrollbar-x="false">
+        <div class="progress clearfix" ng-style="progress">
+            <h2 class="h2-title">施工进度</h2>
+            <ul>
+                <li ng-repeat="item in userInfo.flow">
+                    <img ng-src="{{img_url+item.photo}}"  />
+                    <div></div>
+                    <p>{{item.title}}</p>
+                </li>
+
+            </ul>
+        </div>
+        </ion-scroll>
+        <ion-scroll class="nav-scroll"  direction="x" scrollbar-x="false">
+        <div class="project-team" ng-style="team">
+            <h2 class="h2-title">项目团队</h2>
+            <ul class="clearfix">
+                <li ng-repeat="item in userInfo.team">
+                    <img ng-src="{{img_url+item.photo}}"  />
+                    <div class="name">{{item.title}}</div>
+                    <div class="job">{{item.job}}</div>
+                </li>
+
+            </ul>
+        </div>
+        </ion-scroll>
+        <div class="scene">
+            <h2 class="h2-title">装修现场</h2>
+            <div class="scenelist" ng-repeat="item in scene">
+                <div class="time">
+                    <span class="day">26</span>/05
+                    <p class="year"><span>2017</span>年</p>
+                </div>
+                <div class="show">
+                    <div class="job">
+                        <span class="cl">{{item.flow_str}}</span>
+                        <b><span>{{item.team_str}}</span>·<span>{{item.team_job}}</span></b>
+                    </div>
+                    <div class="content">{{item.short_des}}</div>
+                    <ul ng-class="{true:'pic-list',false:'pic'}[item.images.length>1]" ng-show="item.images.length>0">
+                        <li ng-repeat="imgList in item.images" ng-click="showFullImg(item.details_id)"><img ng-src="{{img_url+imgList.imgurl}}"  /></li>
+                    </ul>
+                    <div class="min">上午10:06<span><i class="icon iconfont icon-comment_light"></i></span></div>
+
+                    <div class="comments" ng-repeat="commentList in item.comment">
+                        <div>
+                            <img class="header-pic" src="./img/12.jpg">
+                            <div class="name">
+                                <p>阳光女孩</p>
+                                <span>2017.05.02</span>
+                            </div>
+                            <div class="text">{{commentList.content}}</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line"></div>
+            </div>
+            <!-- <div class="scenelist">
+                <div class="time">
+                    <span class="day">26</span>/05
+                    <p class="year"><span>2017</span>年</p>
+                </div>
+                <div class="show">
+                    <div class="job">
+                        <span class="cl">水电</span>
+                        <b><span>刘军</span>·<span>水泥工</span></b>
+                    </div>
+                    <div class="content">水电工程水电工程水电工程水电工程水电工程水电工程水电工程</div>
+                    <ul class="pic-list">
+                        <li><img src="./img/deco.png"></li>
+                        <li><img src="./img/deco.png"></li>
+                        <li><img src="./img/deco.png"></li>
+                        <li><img src="./img/deco.png"></li>
+                        <li><img src="./img/deco.png"></li>
+                        <li><img src="./img/deco.png"></li>
+                    </ul>
+                    <div class="min">上午10:06<span><i class="icon iconfont icon-comment_light"></i></span></div>
+
+                    <div class="comments">
+                        <div>
+                            <img class="header-pic" src="./img/12.jpg">
+                            <div class="name">
+                                <p>阳光女孩</p>
+                                <span>2017.05.02</span>
+                            </div>
+                            <div class="text">阿打算多所的阿萨德阿萨德阿达大神水电等等阿打算多所的阿萨德阿萨德阿达大神水电等等</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div> -->
+        </div>
+    </ion-content>
+</ion-view>

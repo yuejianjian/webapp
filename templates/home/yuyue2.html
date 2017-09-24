@@ -1,0 +1,41 @@
+
+<ion-view view-title="预约报名" class="yuyue2-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">预约报名</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()" class="myhouse-page">
+        <div class="header-box-shadow"></div>
+        <div class="success">
+            <p>恭喜您预约成功</p>
+            <span>请进一步完善信息，以便我们尽快为您服务</span>form
+        </div>
+        <form class="form">
+            <select class="info-input">
+                <option value="0">请选择您的房屋类型</option>
+                <option></option>
+                <option></option>
+            </select>
+            <select class="info-input">
+                <option value="0">请选择您的户型</option>
+                <option></option>
+                <option></option>
+            </select>
+            <input class="info-input" type="text" placeholder="请输入您的住房面积/m²" />
+            <select class="info-input">
+                <option value="0">请选择您的装修类型</option>
+                <option></option>
+                <option></option>
+            </select>
+            <select class="info-input">
+                <option value="0">请选择您的装修预算</option>
+                <option></option>
+                <option></option>
+            </select>
+
+            <div class="btn">立即提交</div>
+        </form>
+    </ion-content>
+</ion-view>

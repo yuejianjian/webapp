@@ -1,0 +1,25 @@
+
+<ion-view view-title="家装升级" class="updatePack-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">家装升级</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()" class="myhouse-page">
+        <div class="header-box-shadow"></div>
+        <img class="ad-pic" ng-src="{{img_url+adImg}}">
+        <div class="main">
+            <h2 class="h2-title">性能升级</h2>
+            <ul>
+                <li ng-repeat="item in list" ui-sref="updatePackDetail({homeupId:item.homeup_id})">
+                    <img ng-src="{{img_url+item.photo}}">
+                    <div class="content">
+                        <h3>{{item.title}}</h3>
+                        <span>{{item.short_description}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

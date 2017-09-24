@@ -1,0 +1,189 @@
+
+<ion-view view-title="来我家" class="packageDetail-page houseshow-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">{{detail.title}}</div>
+        <div class="right">
+        	<div class="circle"><i class="icon iconfont icon-favor_light"></i></div>
+        	<div class="circle"><i class="icon iconfont icon-favorfill"></i></div>
+        	<div class="circle"><i class="icon iconfont icon-mfenxiang"></i></div>
+        </div>
+    </header>
+	<div class="nav-box2 nav-box3" ng-init='navIndex=1'>
+		<span ng-class="{active:navIndex==1}" ng-click="changeIndex(1)">基本信息</span>
+		<span ng-class="{active:navIndex==2}" ng-click="changeIndex(2)">装修日志</span>
+		<span ng-class="{active:navIndex==3}" ng-click="changeIndex(3)">物料清单</span>
+	</div>
+
+	<div class="black-bg" ng-show="showTip">
+		<div class="tip">
+			<div class="tip-title">提示</div>
+			<div class="message">{{tip}}</div>
+			<div class="btn-box">
+				<!-- <span class="cancle-btn">取消</span> -->
+				<span class="ok-btn" ng-click="showTip=false;">确定</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="black-bg" ng-init="isShowYuyue=false" ng-show="isShowYuyue">
+		<div class="calc yuyue">
+			<div class="close"><span ng-click="showYuyue()">x</span></div>
+			<h3>立即预约</h3>
+			<input id="sqr" class="info-input" type="text" placeholder="请输入您的姓名" ng-model="name" />
+			<input id="sqr" class="info-input" type="text" placeholder="请输入您的电话" ng-model="mobile" />
+			<button class="btn" ng-click="yuyue()" >立即预约</button>
+		</div>
+	</div>
+
+    <ion-scroll  class="modelroom-page" id="myscroll" ng-style="grid_height">
+         <div class="ad-pic">
+	        <header class="transparent-header">
+		        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+		        <div class="right">
+		        	<div class="panorama">720°</div>
+		        	<div class="circle"><i class="icon iconfont icon-favor_light"></i></div>
+		        	<div class="circle"><i class="icon iconfont icon-mfenxiang"></i></div>
+		        </div>
+		    </header>
+         	<img ng-src="{{img_url+detail.photo}}"  />
+         	<div class="pic"><img ng-src="{{img_url+detail.owner_photo}}"  /></div>
+            <div class="dec">
+                <p class="name">{{detail.title}}</p>
+                <p><span>{{detail.short_description}}</span></p>
+            </div>
+         </div>
+         <div class="location-box">
+			<i class="icon iconfont icon-dibiaotianchong"></i>&nbsp;&nbsp;
+			<span>{{detail.owner_addres}}</span>
+			<i class="icon iconfont icon-xiangyoujiantou right-icon"></i>
+		</div>
+		<div class="location-box price-box">
+			￥<span>{{detail.price}}</span>
+		</div>
+        <div class="model-content">
+        	<div class="introduction">{{detail.short_description}}</div>
+        </div>
+		<div id="nav-box" class="nav-box nav-box3">
+			<span ng-class="{active:navIndex==1}" ng-click="changeIndex(1)">基本信息</span>
+			<span ng-class="{active:navIndex==2}" ng-click="changeIndex(2)">装修日志</span>
+			<span ng-class="{active:navIndex==3}" ng-click="changeIndex(3)">物料清单</span>
+		</div>
+		<div class="introduction nav-item" ng-show="navIndex==1"  ng-bind-html="detail.info|unescapeHTML">
+			<!-- <ul>
+				<li>
+					<img src="./img/deco.png">
+					<div class="dec"><span>丨</span><p>反倒是发送到发送到发送到发送到发送到发送到发送到发送到嘎嘎嘎</p></div>
+				</li>
+			</ul> -->
+		</div>
+
+		<div class="decoration-log nav-item" ng-show="navIndex==3">
+			装修日志
+		</div>
+
+		<div class="material-bill nav-item" ng-show="navIndex==3" ng-init="isAllchoose=false">
+			<div class="slect-all" ng-show="isShowChoose">
+				<label class="myCheck">
+			    	<input type="checkbox" ng-checked="isAllchoose" ng-click="chooseAll()">
+			    	<span></span>
+			    </label>
+		        <span class="dec">全选</span>
+			</div>
+			<div class="classify" ng-repeat="item in material">
+				<h2><span>丨</span>{{item.room}}</h2>
+				<div class="item-list" ng-repeat="list in item.list">
+					<label class="myCheck" ng-show="isShowChoose">
+				    	<input type="checkbox" ng-checked="isChoose" data-id="1">
+				    	<span></span>
+				    </label>
+					<img ng-src="{{img_url+list.original_img}}">
+					<div class="list-dec">
+						<div class="div1">{{list.goods_name}}</div>
+						<div ng-repeat="spec_arr in list.spec_arr">
+						<div class="div2">{{spec_arr.name}}:<span>{{spec_arr.item}}</span></div>
+						</div>
+					</div>
+					<div class="list-price">
+						<div class="price">￥<span>{{list.shop_price}}</span></div>
+						<div class="oldprice">￥<span>{{list.market_price}}</span></div>
+						<div class="num">x<span>{{list.num}}</span></div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- <div class="classify">
+				<h2><span>丨</span>主卧</h2>
+				<div class="item-list">
+					<label class="myCheck" ng-show="isShowChoose">
+				    	<input type="checkbox" ng-checked="isChoose" data-id="1">
+				    	<span></span>
+				    </label>
+					<img src="./img/deco.png">
+					<div class="list-dec">
+						<div class="div1">床</div>
+						<div class="div2">品牌:<span>西门子</span></div>
+						<div class="div3">规格:<span>120*120*120</span></div>
+						<div class="div4">材质:<span>白色</span><span>实木</span></div>
+					</div>
+					<div class="list-price">
+						<div class="price">￥<span>5600.00</span></div>
+						<div class="oldprice">￥<span>7700.00</span></div>
+						<div class="num">x<span>1</span></div>
+					</div>
+				</div>
+				<div class="item-list">
+					<label class="myCheck" ng-show="isShowChoose">
+				    	<input type="checkbox" ng-checked="isChoose" >
+				    	<span></span>
+				    </label>
+					<img src="./img/deco.png">
+					<div class="list-dec">
+						<div class="div1">床</div>
+						<div class="div2">品牌:<span>西门子</span></div>
+						<div class="div3">规格:<span>120*120*120</span></div>
+						<div class="div4">材质:<span>白色</span><span>实木</span></div>
+					</div>
+					<div class="list-price">
+						<div class="price">￥<span>5600.00</span></div>
+						<div class="oldprice">￥<span>7700.00</span></div>
+						<div class="num">x<span>1</span></div>
+					</div>
+				</div>
+				<div class="item-list">
+					<label class="myCheck" ng-show="isShowChoose">
+				    	<input type="checkbox" ng-checked="isChoose" >
+				    	<span></span>
+				    </label>
+					<img src="./img/deco.png">
+					<div class="list-dec">
+						<div class="div1">床</div>
+						<div class="div2">品牌:<span>西门子</span></div>
+						<div class="div3">规格:<span>120*120*120</span></div>
+						<div class="div4">材质:<span>白色</span><span>实木</span></div>
+					</div>
+					<div class="list-price">
+						<div class="price">￥<span>5600.00</span></div>
+						<div class="oldprice">￥<span>7700.00</span></div>
+						<div class="num">x<span>1</span></div>
+					</div>
+				</div>
+			</div> -->
+
+
+		</div>
+
+
+		<div class="footer-box-shadow"></div>
+    </ion-scroll>
+
+    <footer class="footer-box" ng-init="isShowChoose=false">
+    	<div class="footer-btn3" ng-show="navIndex!=3" ng-click="showYuyue()">立即预约</div>
+    	<div class="footer-btn3" ng-show="navIndex==3&&!isShowChoose" ng-click="showChoose()">添加物料清单到购物车</div>
+    	<div class="addCar" ng-show="isShowChoose">
+    		<div class="addCar-btn">再看看</div>
+    		<div class="addCar-btn" ng-click="addCar()">加入购物车</div>
+    	</div>
+    </footer>
+</ion-view>

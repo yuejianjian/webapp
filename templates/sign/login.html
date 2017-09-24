@@ -1,0 +1,52 @@
+
+<ion-view view-title="登录" class="login-page">
+    <header class="header-box">
+        <div class="left" ui-sref="tab.home"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">登录</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+      <div class="header-box-shadow"></div>
+      <div class="header-box-border"></div>
+      <form name="dataForm" novalidate="novalidate" ng-submit="save(dataForm);">
+        <div class="list list-inset">
+          <div class="form-input">
+            <i class="icon ion-iphone placeholder-icon"></i>
+            <input type="text" name="mobile" ng-pattern="mobileRegx" ng-model="data.mobile" required placeholder="请输入手机号码" >
+            <span class="error" ng-show="valid && dataForm.mobile.$error.required">*手机号不能为空</span>
+            <span class="error" ng-show="dataForm.mobile.$error.pattern&&valid">*非法的手机号码</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </div>
+          <div class="form-input">
+            <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+            <input type="password" name="pwd" ng-pattern="pwdRegx" ng-model="data.pwd"  required placeholder="请输入密码" >
+            <span class="error" ng-show="valid && dataForm.pwd.$error.required">*密码不能为空</span>
+            <span class="error" ng-show="dataForm.pwd.$error.pattern&& valid">*密码不合法</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </div>
+
+          <div class="error-tip" ng-show="error">
+              {{errorMsg}}
+          </div>
+
+          <label class="sumbit-button">
+            <button type="submit">登录</button>
+          </label>
+        </div>
+      </form>
+
+      <div class="forget-register">
+        <span ui-sref="forgetPwd">忘记密码？</span>
+        <span ui-sref="register">立即注册</span>
+      </div>
+
+      <div class="login-method">
+          <h3>————————<span>其他登录方式</span>————————</h3>
+
+          <div class="pic">
+            <img src="./img/qq.png">
+            <img src="./img/weixin.png">
+            <img src="./img/message.png">
+          </div>
+      </div>
+</ion-view>

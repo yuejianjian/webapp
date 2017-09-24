@@ -1,0 +1,99 @@
+
+<ion-view view-title="搜索" class="search-page">
+    <header class="header">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="search">
+        <div class="search-ico"><i class="icon iconfont icon-sousuo"></i></div>
+        <input type="text" placeholder="整体家装" ng-model="key" />
+        </div>
+        <div class="search-btn" ng-click="search()">搜索</div>
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()">
+        <div class="header-shadow"></div>
+        <div class="search-history" ng-show="search_arr.length>0">
+            <h2>
+                历史搜索
+                <span style="float: right;" ng-click="clearHistory()">清除记录</span>
+            </h2>
+            <div class="list">
+                <span ng-repeat="value in search_arr track by $index" ng-click="copy(value)">{{value}}</span>
+            </div>
+        </div>
+        <div class="empt-result" ng-show="searchResult==1">
+            <img src="./img/null.png">
+            <p>暂时没有找到<span>整体家装</span>相关结果哦</p>
+        </div>
+        <!-- <div class="search-result" ng-style="grid_height">
+            <div class="list-box">
+                <div class="box-shadow"></div>
+                <h2><span></span>整体家装</h2>
+                <ul>
+                    <li>
+                        <img src="./img/deco.png">
+                        <div class="content">
+                            <p class="name">套餐名称</p>
+                            <p class="dec"><span>699硬装</span></p>
+                            <p class="price">￥<span>699</span></p>
+                        </div>
+                        <div class="right"><i class="icon iconfont icon-xiangyoujiantou"></i></div>
+                    </li>
+                    <li>
+                        <img src="./img/deco.png">
+                        <div class="content">
+                            <p class="name">套餐名称</p>
+                            <p class="dec"><span>699硬装</span></p>
+                            <p class="price">￥<span>699</span></p>
+                        </div>
+                        <div class="right"><i class="icon iconfont icon-xiangyoujiantou"></i></div>
+                    </li>
+                    <li>
+                        <img src="./img/deco.png">
+                        <div class="content">
+                            <p class="name">套餐名称</p>
+                            <p class="dec"><span>699硬装</span></p>
+                            <p class="price">￥<span>699</span></p>
+                        </div>
+                        <div class="right"><i class="icon iconfont icon-xiangyoujiantou"></i></div>
+                    </li>
+                </ul>
+                <div class="more">查看更多&nbsp;<i class="icon iconfont icon-xiangyoujiantou"></i></div>
+            </div>
+
+
+            <div class="list-box">
+                <div class="box-shadow"></div>
+                <h2><span></span>来我家</h2>
+                <ul>
+                    <li>
+                        <img src="./img/deco.png">
+                        <div class="content">
+                            <p class="name">套餐名称</p>
+                            <p class="person"><i class="icon iconfont icon-ren"></i>&nbsp;<span>王女士</span></p>
+                            <p class="person"><i class="icon iconfont icon-dibiaotianchong"></i>&nbsp;<span>中南国际show城A1座1103</span></p>
+                        </div>
+                        <div class="right"><i class="icon iconfont icon-xiangyoujiantou"></i></div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="list-box">
+                <div class="box-shadow"></div>
+                <h2><span></span>体验店</h2>
+                <ul>
+                    <li>
+                        <img src="./img/deco.png">
+                        <div class="content">
+                            <p class="name">套餐名称</p>
+                            <p class="person"><i class="icon iconfont icon-ren"></i>&nbsp;<span>王女士</span></p>
+                            <p class="person"><i class="icon iconfont icon-dibiaotianchong"></i>&nbsp;<span>中南国际show城A1座1103</span></p>
+                        </div>
+                        <div class="right"><i class="icon iconfont icon-xiangyoujiantou"></i></div>
+                    </li>
+                </ul>
+
+            </div>
+        </div> -->
+    </ion-content>
+</ion-view>

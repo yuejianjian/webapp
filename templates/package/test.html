@@ -1,0 +1,34 @@
+<ion-view view-title="套餐名称" class="package-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">套餐名称</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()">
+        <div class="header-box-shadow"></div>
+        <div class="ad-pic">
+            <img ng-src="{{img_url+adImg[0].ad_code}}">
+        </div>
+        <p class="ul-title">——&nbsp;风格选择&nbsp;——</p>
+        <ul class="goods-list">
+            <li ng-repeat="item in packageList">
+                <div class="list-wrap" ui-sref="packageDetail({suit_id:item.suit_id})">
+                    <img ng-src="{{img_url+item.photo}}" />
+                    <div class="content">
+                        {{item.title}}
+                    </div>
+                    <div class="tip">{{item.style_str}}</div>
+                </div>
+                <div class="pic-list">
+                    <img ng-src="{{img_url+piclist.url}}">
+                </div>
+            </li>
+            <li ng-repeat="item1 in piclist">
+                <div class="list-wrap" ui-sref="packageDetail({id:item1.id})">
+                    <img ng-src="{{item1.url}}"/>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

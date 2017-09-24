@@ -1,0 +1,37 @@
+
+<ion-view view-title="手机登录" class="login-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">手机登录</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+      <div class="header-box-shadow"></div>
+      <div class="header-box-border"></div>
+      <form name="dataForm" novalidate="novalidate" ng-submit="save(dataForm);">
+        <div class="list list-inset">
+          <div class="form-input">
+            <i class="icon ion-iphone placeholder-icon"></i>
+            <input type="text" name="mobile" ng-pattern="mobileRegx"  ng-model="data.mobile" required placeholder="请输入手机号码" >
+            <span class="error" ng-show="valid && dataForm.mobile.$error.required">*手机号不能为空</span>
+            <span class="error" ng-show="dataForm.mobile.$error.pattern&&valid">*手机号码不正确</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </div>
+          <div class="form-input">
+            <i class="icon ion-iphone placeholder-icon"></i>
+            <input type="text" name="captcha" ng-model="data.captcha"  required placeholder="请输入验证码">
+            <div id="captcha" ng-click="getCaptcha()" >{{codeText}}</div>
+          </div>
+
+          <div class="error-tip" ng-show="error">
+              {{errorMsg}}
+          </div>
+
+          <label class="sumbit-button">
+            <button type="submit">登录</button>
+          </label>
+        </div>
+      </form>
+
+
+</ion-view>

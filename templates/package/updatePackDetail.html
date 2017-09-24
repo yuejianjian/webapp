@@ -1,0 +1,75 @@
+
+<ion-view view-title="家装升级" class="updatePackDetail-page">
+
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">{{detail.title}}</div>
+        <div class="right"><i class="icon iconfont icon-favor_light"></i><i class="icon iconfont icon-mfenxiang"></i></div>
+    </header>
+
+    <div class="black-bg" ng-init="isShowTel=false" ng-show="isShowTel">
+        <div class="tip">
+            <div class="tip-title">提示</div>
+            <div class="message">是否拨打客服电话40000000</div>
+            <div class="btn-box">
+                <span class="cancle-btn" ng-click="showTel()">取消</span>
+                <span class="ok-btn" ng-click="showTip=false;"><a href="tel:18271630398">确定</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="black-bg" ng-init="isShowCalc=false" ng-show="isShowCalc">
+        <div class="wrap">
+            <div class="close"><i ng-click="isShowCalc=false" class="icon iconfont icon-close"></i></div>
+            <h2>预约报价</h2>
+            <form class="form">
+                <select class="info-input">
+                    <option value="0">请选择设备</option>
+                    <option value="1">设备一</option>
+                    <option value="2">设备二</option>
+                </select>
+                <input class="info-input" type="text" placeholder="请输入面积/m²" />
+                <select class="info-input">
+                    <option value="0">请输入户型</option>
+                    <option value="1">户型一</option>
+                    <option value="2">户型二</option>
+                </select>
+                <input class="info-input" type="text" placeholder="请输入您的手机号" />
+
+                <div class="btn">立即提交</div>
+            </form>
+        </div>
+    </div>
+
+    <ion-content on-swipe-left="onSwipeLeft()" class="myhouse-page">
+        <div class="header-box-shadow"></div>
+        <div class="dec">
+            <img ng-src="{{img_url+detail.photo}}">
+            <div class="content">
+                <h3>{{detail.title}}</h3>
+                <span>{{detail.short_description}}</span>
+            </div>
+            <div class="shebei">
+                <b>设备一</b>￥<span>3652</span>/m²
+            </div>
+            <div class="shebei">
+                <b>设备一</b>￥<span>3652</span>/m²
+            </div>
+        </div>
+        <div class="detail">
+            <div class="title">
+                <h3>产品详情</h3>
+                <img src="./img/down.png">
+            </div>
+            <div class="content-list" ng-bind-html="detail.info|unescapeHTML">
+
+            </div>
+        </div>
+
+        <div class="footer-box-shadow"></div>
+    </ion-content>
+    <footer class="shengji-footer">
+        <div class="btn1" ng-click="showTel()">客服咨询</div>
+        <div class="btn2" ng-click="isShowCalc=true">预约报价</div>
+    </footer>
+</ion-view>

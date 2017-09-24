@@ -1,0 +1,107 @@
+
+<div id="search-box" class="search-box" >
+	<a href="#/search">
+	<div class="search">
+		<i class="icon iconfont icon-sousuo"></i>
+	</div>
+	</a>
+</div>
+<ion-view on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+    <ion-scroll  class="home-page" id="myscroll" ng-style="grid_height">
+
+    	<div class="slide-box">
+    	<a href="#/search"><div class="search-icon"><i class="icon iconfont icon-sousuo"></i></div></a>
+        <ion-slide-box does-continue="true"  auto-play="true" slide-interval="2000" delegate-handle="slideboximgs">
+		  <ion-slide ng-repeat="item in spriead">
+		    <a ng-href="{{item.ad_link}}"><img ng-src="{{img_url+item.ad_code}}"  /></a>
+		  </ion-slide>
+		</ion-slide-box>
+		</div>
+
+
+		<div class="category-box">
+		<i></i>
+	        <ul>
+	            <li>
+	                <a  ui-sref="showrooms">
+	                    <img src="./img/tiyandian.png">
+	                    <span>体验店</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a  ui-sref="myhouse">
+	                    <img src="./img/wodejia.png" />
+	                    <span>我的家</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a  ui-sref="guide">
+	                    <img src="./img/zhuangxiuzhinan.png" />
+	                    <span>装修指南</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a  ui-sref="special">
+	                    <img src="./img/zhuanti.png" />
+	                    <span>专题</span>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+
+		<div class="package-box clearfix">
+			<ul>
+				<li ui-sref="package" ng-repeat="item in gongge1">
+					<img  ng-src="{{img_url+item.photo}}">
+					<div class="content">
+
+					</div>
+                    <div class="guzhong">
+                        <div class="price">
+                            <div class="lt"><b>￥</b></div>
+                            <div class="rt"><b>{{item.price | roundingFilter}}</b></div>
+                        </div>
+                        <div class="classify">{{item.title}}</div>
+                        <div class="name">一<span>{{item.short_des}}</span>一</div>
+                    </div>
+				</li>
+				<li ui-sref="updatePack">
+					<img  ng-src="{{img_url+gongge2.photo}}">
+					<div class="content">
+
+					</div>
+                    <div class="guzhong">
+                        <div class="updata-pakage">{{gongge2.title}}</div>
+                    </div>
+				</li>
+
+			</ul>
+		</div>
+
+		<!--<div class="recommend-box">
+			<h2>共享家推荐</h2>
+			<ul class="goods-list">
+				<li ui-sref="modelroom({prototypeId: item.prototype_id})" ng-repeat="item in _prototype">
+					<div class="list-wrap">
+						<img ng-src="{{img_url+item.photo}}">
+						<div class="content">
+							<div class="pic"><img ng-src="{{img_url+item.owner_photo}}"></div>
+							<div class="info">
+								<p>{{item.owner_name}}</p>
+								<p>{{item.short_description}}</p>
+							</div>
+							<div class="location">
+								<p><i class="icon iconfont icon-dibiaotianchong"></i>&nbsp;<span>{{item.owner_addres}}</span></p>
+								<div class="distance">&lt;<span>{{item.distance}}</span>m</div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>-->
+
+	    <!-- <h2 ng-click="show()">上拉菜单</h2> -->
+
+    </ion-scroll>
+</ion-view>

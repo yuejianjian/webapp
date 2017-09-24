@@ -1,0 +1,53 @@
+
+<ion-view view-title="绑定手机" class="login-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">绑定手机</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+      <div class="header-box-shadow"></div>
+      <div class="header-box-border"></div>
+      <form name="dataForm" novalidate="novalidate" ng-submit="save(dataForm);">
+        <div class="list list-inset">
+          <label class="item item-input login-input">
+            <i class="icon ion-iphone placeholder-icon"></i>
+            <input type="text" name="mobile" ng-pattern="mobileRegx" valid-method="onblur" ng-model="data.mobile" ng-blur="mobile=true" ng-focus="mobile=false" required placeholder="请输入手机号码" >
+            <span class="error" ng-show="mobile && dataForm.mobile.$error.required">*手机号不能为空</span>
+            <span ng-show="dataForm.mobile.$error.pattern&&mobile">*非法的手机号码</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </label>
+          <label class="item item-input login-input">
+            <i class="icon ion-iphone placeholder-icon" style="width: 25px;"></i>
+            <input type="text" name="captcha" ng-model="data.captcha"  required placeholder="请输入验证码" ng-focus="getCaptcha(); " >
+            <div id="captcha">{{codeText}}</div>
+          </label>
+          <label class="item item-input login-input">
+            <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+            <input type="password" name="pwd" ng-pattern="pwdRegx" valid-method="onblur" ng-model="data.pwd" ng-blur="pwd=true" ng-focus="pwd=false" required placeholder="请输入密码" >
+            <span class="error" ng-show="pwd && dataForm.pwd.$error.required">*密码不能为空</span>
+            <span ng-show="dataForm.pwd.$error.pattern&&pwd">*密码不合法</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </label>
+
+          <label class="sumbit-button">
+            <button type="submit" ng-disabled="dataForm.$invalid">确认</button>
+          </label>
+
+          <div class="bind-tip">
+            <p>*绑定手机可以提高账号安全性，方便密码找回。</p>
+            <p>*根据国家互联网信息办公室发布的《移动互联网应用程序信息服务管理规定》自2016年8月20日起，要求互联网注册用户基于移动电话号码等真实身份信息进行实名认证。</p>
+          </div>
+        </div>
+      </form>
+
+      <div class="bind-pop" ng-init="isShow=true" ng-show="isShow">
+          <div class="wrap">
+              <img src="./img/bindMobile.png"><br />
+              <span>手机号绑定</span>
+              <p>根据国家互联网信息办公室发布的《移动互联网应用程序信息服务管理规定》自2016年8月20日起，要求互联网注册用户基于移动电话号码等真实身份信息进行实名认证，所以需要您完成绑定手机号的操作。</p>
+              <div class="close" ng-click="isShow=false">我知道了</div>
+          </div>
+      </div>
+
+</ion-view>

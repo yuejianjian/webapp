@@ -1,0 +1,77 @@
+
+<ion-view view-title="我的" class="my-page">
+    <header class="header-box">
+        <div class="left"></div>
+        <div class="page-title">我的</div>
+        <div class="right" ui-sref="personCenter"><i class="icon iconfont icon-ren1"></i></div>
+    </header>
+
+    <ion-content on-swipe-left="onSwipeLeft()" class="myhouse-page">
+        <div class="header-box-shadow"></div>
+
+		<!-- 未登录 -->
+		<div ng-show="!isLogin">
+			<div class="infomation">
+	            <img src="./img/12.jpg"><br />
+				<span class="to-login" ui-sref="login">登录</span>
+	        </div>
+	        <div class="progress clearfix notlogin">
+	        	<div class="noprogress">登陆后查看我的装修进度</div>
+	        </div>
+        </div>
+
+		<div ng-show="isLogin">
+
+        <div class="infomation" >
+            <img src="./img/12.jpg" ng-show="!isLogin">
+            <img ng-src="{{img_url+userInfo.head_pic}}" ng-show="isLogin">
+			<p>{{userInfo.nickname}}</p>
+			<p>{{userInfo.mobile}}</p>
+        </div>
+        <div class="progress clearfix" ng-style="progress">
+        	<!-- <div class="noprogress">您还没有装修进度，快去看看吧<i class="icon ion-ios-arrow-right"></i></div> -->
+            <ion-scroll direction="x" scrollbar-x="false">
+	            <ul>
+	                <li ng-repeat="item in userInfo.flow">
+	                    <img ng-src="{{img_url+item.photo}}"  />
+	                    <div></div>
+	                    <p>{{item.title}}</p>
+	                </li>
+	            </ul>
+        	</ion-scroll>
+        </div>
+
+        </div>
+
+		<ul>
+       		<li class="li-item" ui-sref="myCollection">
+       			<img src="./img/icon1.png">
+       			<span class="name">我的收藏</span>
+       			<span class="right"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+       		<li class="li-item" ui-sref="myYuyue">
+       			<img src="./img/icon2.png">
+       			<span class="name">我的预约</span>
+       			<span class="right"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+       		<li class="li-item">
+       			<img src="./img/icon3.png">
+       			<span class="name">我的订单</span>
+       			<span class="right"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+       		<li class="li-item">
+       			<img src="./img/icon4.png">
+       			<span class="name">我的地址</span>
+       			<span class="right"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+       		<li class="li-item" ui-sref="myContract">
+       			<img src="./img/icon5.png">
+       			<span class="name">我的合同</span>
+       			<span class="right"><i class="icon ion-ios-arrow-right"></i></span>
+       		</li>
+        </ul>
+
+
+
+    </ion-content>
+</ion-view>

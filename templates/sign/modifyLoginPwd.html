@@ -1,0 +1,45 @@
+
+<ion-view view-title="修改密码" class="login-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">修改密码</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+
+      <div class="header-box-shadow"></div>
+      <div class="header-box-border"></div>
+      <form name="dataForm" novalidate="novalidate" ng-submit="save(dataForm);">
+        <div class="list list-inset">
+          <div class="form-input">
+            <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+            <input type="password" name="oldpwd" ng-pattern="pwdRegx" ng-model="data.oldpwd"  required placeholder="原密码" >
+            <span class="error" ng-show="valid && dataForm.oldpwd.$error.required">*密码不能为空</span>
+            <span class="error" ng-show="dataForm.oldpwd.$error.pattern&& valid">*密码不合法</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </div>
+          <div class="form-input">
+            <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+            <input type="password" name="newpwd1" ng-pattern="pwdRegx" ng-model="data.newpwd1"  required placeholder="新密码" >
+            <span class="error" ng-show="valid && dataForm.newpwd1.$error.required">*密码不能为空</span>
+            <span class="error" ng-show="dataForm.newpwd1.$error.pattern&& valid">*密码不合法</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </div>
+          <div class="form-input">
+            <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+            <input type="password" name="newpwd2" ng-pattern="pwdRegx" ng-model="data.newpwd2"  required placeholder="新密码" >
+            <span class="error" ng-show="valid && dataForm.newpwd2.$error.required">*密码不能为空</span>
+            <span class="error" ng-show="valid && data.newpwd1!==data.newpwd2">*密码不一致</span>
+            <span class="error" ng-show="dataForm.newpwd2.$error.pattern&&valid">*密码不合法</span>
+            <i class="icon ion-ios-close-empty placeholder-icon"></i>
+          </div>
+
+           <div class="error-tip" ng-show="error">
+              {{errorMsg}}
+          </div>
+
+          <label class="sumbit-button">
+            <button type="submit">确认修改</button>
+          </label>
+        </div>
+      </form>
+</ion-view>

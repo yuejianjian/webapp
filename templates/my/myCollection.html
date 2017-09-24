@@ -1,0 +1,125 @@
+
+
+<ion-view view-title="我的收藏" class="myCollection-page">
+    <header class="header-box">
+        <div class="left" ng-click="goBack()"><i class="icon iconfont icon-xiangzuojiantou"></i></div>
+        <div class="page-title">我的收藏</div>
+        <!-- <div class="right"><i class="icon ion-ios-arrow-right"></i></div> -->
+    </header>
+    <div class="header-box-shadow"></div>
+
+    <ion-scroll class="nav-scroll"  direction="x" scrollbar-x="false">
+    <ul class="nav">
+
+        <li ng-class="{active:navIndex==1}" ng-click="changeIndex(1)">来我家</li>
+        <li ng-class="{active:navIndex==2}" ng-click="changeIndex(2)">装修</li>
+        <li ng-class="{active:navIndex==3}" ng-click="changeIndex(3)">商品</li>
+        <li ng-class="{active:navIndex==4}" ng-click="changeIndex(4)">品牌</li>
+        <li ng-class="{active:navIndex==5}" ng-click="changeIndex(5)">家装升级</li>
+        <li ng-class="{active:navIndex==6}" ng-click="changeIndex(6)">装修指南</li>
+        <li ng-class="{active:navIndex==7}" ng-click="changeIndex(7)">体验店</li>
+
+    </ul>
+
+ </ion-scroll>
+        <!-- <div class="header-box-shadow"></div> -->
+   <ion-content>
+    <div class="nav-shadow"></div>
+
+        <ul class="nav-list" ng-show="navIndex==1">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="name">样板间名称</div>
+                    <div class="person"><i class="icon ion-android-person"></i>&nbsp;&nbsp;<span>王女士</span></div>
+                    <div class="address"><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>中南国际城</span></div>
+
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+        <ul class="nav-list" ng-show="navIndex==2">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="name">699硬装：套餐名称</div>
+                    <div class="dec">￥699/m²</div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+        <ul class="nav-list" ng-show="navIndex==3">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="name">北欧北欧北欧</div>
+                     <div class="dec">白橡木框架</div>
+                    <div class="price">￥699/m²</div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+        <ul class="nav-list" ng-show="navIndex==4">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="name">北欧北欧北欧</div>
+                     <div class="dec">白橡木框架</div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+        <ul class="nav-list" ng-show="navIndex==5">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="name">德国新风系统</div>
+                     <div class="dec">新风送样新风送样新风送样新风送样新风送样新风送样新风送样新风送样</div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+        <ul class="nav-list" ng-show="navIndex==6">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="article-title">你家请一位光影魔术师：万能百搭百叶窗</div>
+                     <div class="article-like">
+                     <span>验房收房-交房</span>
+                     <i class="icon iconfont icon-eye"></i>1254
+                     <i class="icon iconfont icon-jiaxingshoucang"></i>1254
+                    </div>
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+        <ul class="nav-list" ng-show="navIndex==7">
+            <li>
+                <div class="left">
+                    <img class="pic" src="./img/deco.png">
+                </div>
+                <div class="center">
+                    <div class="name">样板间名称</div>
+                    <div class="person"><i class="icon iconfont icon-dingwei1"></i>&nbsp;&nbsp;<span>中南国际城</span></div>
+                    <div class="address"><i class="icon iconfont icon-dingwei1"></i>&nbsp;<span>欧式家具床</span></div>
+
+                </div>
+                <div class="right"><i class="icon ion-ios-arrow-right"></i></div>
+            </li>
+        </ul>
+
+        </ion-content>
+
+</ion-view>
